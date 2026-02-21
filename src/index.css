@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --background: 230 20% 6%;
+    --foreground: 210 20% 98%;
+
+    --card: 230 20% 10%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 230 20% 8%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 0 72% 51%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 230 15% 15%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 230 15% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 142 71% 45%;
+    --accent-foreground: 142 71% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 230 15% 18%;
+    --input: 230 15% 18%;
+    --ring: 0 72% 51%;
+
+    --radius: 1rem;
+
+    /* Custom tokens for Mbayar Bet (Senegal theme: Red, Gold, Green) */
+    --gold: 45 93% 47%;
+    --gold-foreground: 45 93% 5%;
+    --maroon: 0 72% 35%;
+    --senegal-green: 142 71% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Outfit', 'Montserrat', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-md border border-white/10;
+  }
+
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-xl border border-white/5;
+  }
+
+  .gradient-hero {
+    background: radial-gradient(circle at 50% -20%, hsl(0 72% 20% / 0.15) 0%, transparent 60%),
+      radial-gradient(circle at 10% 40%, hsl(142 71% 20% / 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, hsl(45 93% 20% / 0.1) 0%, transparent 40%),
+      hsl(230 20% 6%);
+  }
+
+  .gradient-card {
+    background: linear-gradient(145deg, hsl(230 20% 12%) 0%, hsl(230 20% 8%) 100%);
+  }
+
+  .gradient-cta {
+    background: linear-gradient(135deg, hsl(0 72% 51%) 0%, hsl(0 80% 60%) 100%);
+    box-shadow: 0 8px 32px -8px hsl(0 72% 51% / 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .gradient-cta:hover {
+    box-shadow: 0 12px 40px -8px hsl(0 72% 51% / 0.7);
+    transform: translateY(-2px);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(45 93% 47%) 0%, hsl(45 100% 70%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-primary {
+    background: linear-gradient(135deg, hsl(0 72% 51%) 0%, hsl(0 100% 70%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-primary {
+    filter: drop-shadow(0 0 15px hsl(var(--primary) / 0.3));
+  }
+
+  .border-gradient {
+    border: 1px solid transparent;
+    background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+      linear-gradient(135deg, hsl(var(--primary)/0.5), hsl(var(--gold)/0.5)) border-box;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+}
